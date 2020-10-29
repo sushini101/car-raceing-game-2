@@ -23,4 +23,35 @@ class Game {
       form.display();
     }
   }
+
+play(){
+  form.hide();
+  textSize(30);
+  text("Game START!",120,100);
+
+  Player.getPlayerInfo();
+
+  if(allPlayers!==undefined){
+    var displayPos=130;
+
+    for(var plr in allPlayers){
+
+      if(plr==="player"+player.index){
+        fill("green");
+      }
+      else{
+        fill("black");
+      }
+
+      displayPos+=20;
+      textSize(15);
+      text(allPlayers[plr].name + " : " + allPlayers[plr].distance,120,displayPos);
+    }
+}
+if(keyIsDown(UP_ARROW)&& player.index!==null){
+  player.distance+=20;
+  player.update();
+}
+}
+
 }
